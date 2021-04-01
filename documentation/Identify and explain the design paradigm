@@ -1,1 +1,9 @@
-
+Our team chose the Event Driven Design Paradigm.
+We chose it because it can simplify horizontal scalability in distributed computing models. It is easy to add more consumers, message channels and providers.
+It also has more resilient to failure. Providers that fail can be replaced with redundant providers that provide the same event. It can use multiple sources to process events. 
+Therefore, if one fails, the other can handle the event. Message channel by its very nature is resilient to failure.
+Providers in Event Driven Design have the responsibility to detect, gather, and transfer events. They do not know the user of the activity, do not know whether the consumer exists, and do not know how to use or further process the event.
+The role of the message channel in Event Driven Design is to transmit events from the providers to the consumer. The knowledge of the correct distribution of events only exists in the message channel. 
+It can be physically implemented: message-oriented middleware and point-to-point communication. Users can communicate directly with users security on our Tweeter application.
+Consumers can react immediately after an event occurs in Event Driven Design. Consumers themselves may or may not be able to provide a complete response.
+The above factors in this paradigm are almost all we need, so our team chose Event Driven Design Paradigm.
