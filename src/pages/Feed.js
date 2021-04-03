@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { signout } from "../helpers/auth";
 import { auth, db } from "../services/firebase";
+import { Tweet } from "../components/Tweet.js";
 import '../bulma.min.css';
+import '../styles.css';
+
 /**
  * Encapsulates all Tweets into one Feed object
  */
@@ -70,32 +73,36 @@ export default class Feed extends Component
         return (
           <>
             <div className="container">
-                <div className="container">
-                  <h1 className="is-size-1 is-text-centered">Tweeter</h1>
-                </div>
-                <div className="tweets">
-                    {this.state.chats.map(chat => {
-                        let date = new Date(chat.timestamp);
-                        let time = (date.getHours() % 12) + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + ' ' + (date.getHours()>=12?'PM':'AM');
-                        date = date.toString();
-                        return <p key={chat.timestamp}>{time}: <strong>{chat.content}</strong> Email:<strong>{chat.useremail}</strong></p>/////////
-                    })}
-                </div>
-                <form onSubmit={this.handleSubmit}>
-                    { this.state.error ? <p>{this.state.writeError}</p> : null}
-                    <div className="field has-addons is-fullwidth">
-                      <div className="control is-expanded">
-                        <input class="input" type="text" onChange={this.handleChange} value={this.state.content}></input>
+              <div className="columns">
+                <div className="column is-half is-offset-one-quarter">
+                  <div className="container">
+                    <h1 className="is-size-1 has-text-centered">Tweeter</h1>
+                  </div>
+                  <div className="tweets">
+                      {this.state.chats.map(chat => {
+                          let date = new Date(chat.timestamp);
+                          let time = (date.getHours() % 12) + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + ' ' + (date.getHours()>=12?'PM':'AM') + " (" + date.getDay() + "/" + date.getMonth() + "/" + date.getFullYear() + ")";
+                          date = date.toString();
+                          return <Tweet time={time} content={chat.content} email={chat.useremail} />//<p key={chat.timestamp}>{time}: <strong>{chat.content}</strong> Email:<strong>{chat.useremail}</strong></p>/////////
+                      })}
+                  </div>
+                  <form onSubmit={this.handleSubmit}>
+                      { this.state.error ? <p>{this.state.writeError}</p> : null}
+                      <div className="field has-addons is-fullwidth">
+                        <div className="control is-expanded">
+                          <input class="input" type="text" onChange={this.handleChange} value={this.state.content}></input>
+                        </div>
+                        <div className="control">
+                          <button type="submiit" className="button">Send</button>
+                        </div>
                       </div>
-                      <div className="control">
-                        <button type="submiit" className="button">Send</button>
-                      </div>
-                    </div>
-                </form>
-                <div>
-                    <p>Logged in as: <strong>{this.state.user.email}</strong></p>
-                    <p><Link onClick={ () => signout() }>Sign out</Link></p>
+                  </form>
+                  <div>
+                      <p>Logged in as: <strong>{this.state.user.email}</strong></p>
+                      <p><Link onClick={ () => signout() }>Sign out</Link></p>
+                  </div>
                 </div>
+              </div>     
             </div>
             </>
         );
