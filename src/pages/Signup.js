@@ -49,8 +49,7 @@ export default class SignUp extends Component
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit}>
-                    <h1 className="is-size-2">Sign up for <Link to="/">Tweeter</Link>
-                    </h1>
+                    <h1 className="is-size-2">Sign up for <Link to="/">Tweeter</Link></h1>
 
                     <div className="field">
                         <div className="control">

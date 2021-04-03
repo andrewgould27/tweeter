@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { signin, signout } from "../helpers/auth";
+import { signout } from "../helpers/auth";
 import { auth, db } from "../services/firebase";
 import '../bulma.min.css';
-import { pageTitle } from "../components/pageComponents";
-
+/**
+ * Encapsulates all Tweets into one Feed object
+ */
 export default class Feed extends Component 
 {
     constructor(props) {
@@ -23,6 +24,7 @@ export default class Feed extends Component
       }
 
     async componentDidMount() {
+        document.title = "Tweeter Feed";
         this.setState({ readError: null, loadingChats: true });
         try {
           db.ref("chats").on("value", snapshot => {
@@ -50,7 +52,6 @@ export default class Feed extends Component
     async handleSubmit(event) {
         event.preventDefault();
         this.setState({ writeError: null });
-        const chatArea = this.myRef.current;
         try {
           await db.ref("chats").push({
             content: this.state.content,
@@ -67,15 +68,15 @@ export default class Feed extends Component
     render()
     {
         return (
+          <>
             <div className="container">
                 <div className="container">
-                  <pageTitle />
                   <h1 className="is-size-1 is-text-centered">Tweeter</h1>
                 </div>
                 <div className="tweets">
                     {this.state.chats.map(chat => {
                         let date = new Date(chat.timestamp);
-                        let time = (date.getHours() % 12) + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + ' ' + (date.getHours()>12?'PM':'AM');
+                        let time = (date.getHours() % 12) + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + ' ' + (date.getHours()>=12?'PM':'AM');
                         date = date.toString();
                         return <p key={chat.timestamp}>{time}: <strong>{chat.content}</strong> Email:<strong>{chat.useremail}</strong></p>/////////
                     })}
@@ -96,6 +97,7 @@ export default class Feed extends Component
                     <p><Link onClick={ () => signout() }>Sign out</Link></p>
                 </div>
             </div>
+            </>
         );
     }
 }
