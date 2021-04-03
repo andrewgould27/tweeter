@@ -20,7 +20,7 @@ From there, start the local development server with
 
 `npm start`
 
-And youu're off to the races!
+And you're off to the races!
 
 # Contributors
 
