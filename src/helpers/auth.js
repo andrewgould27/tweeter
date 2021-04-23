@@ -1,7 +1,11 @@
-import { auth } from "../services/firebase";
+import { auth, db } from "../services/firebase";
 
 export function signup(username, email, password) {
-    auth().createUserWithEmailAndPassword(email, password)
+    // Check that the username is available
+    // If available push username to database of used usernames
+    // Sign up the user
+    // Change user displayName to username
+    return auth().createUserWithEmailAndPassword(email, password)
     .then(function(result) {
         return result.user.updateProfile({
             displayName: username

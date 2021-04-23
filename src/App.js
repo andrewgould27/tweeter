@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Feed from "./pages/Feed";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 import { auth } from "./services/firebase";
 import './styles.css';
 
@@ -92,6 +93,11 @@ class App extends Component {
               path="/login"
               authenticated={this.state.authenticated}
               component={Login}
+            />
+            <PrivateRoute
+              path="/:username"
+              authenticated={this.state.authenticated}
+              component={Profile}
             />
           </Switch>
         </Router>
