@@ -10,6 +10,7 @@ export default class SignUp extends Component
         super(props);
         this.state = {
             error: null,
+            username: '',
             email: '',
             password: '',
         };
@@ -33,8 +34,11 @@ export default class SignUp extends Component
     async handleSubmit(event) {
         event.preventDefault();
         this.setState({ error: '' });
+
+        console.log(this.state.username);
+
         try {
-            await signup(this.state.email, this.state.password)
+            await signup(this.state.username, this.state.email, this.state.password)
         } catch (error) {
             this.setState({ error: error.message });
         }
@@ -49,6 +53,18 @@ export default class SignUp extends Component
                             <h1 className="is-size-2">Sign up for <Link to="/">Tweeter</Link></h1>
 
                             <div className="field">
+                                <div className="field has-addons">
+                                    <div className="control">
+                                        <button className="button is-disabled">
+                                            @
+                                        </button>
+                                    </div>
+                                    <div className="control">
+                                        <input placeholder="Username" name="username" type="text" onChange={this.handleChange} value={this.state.username} className="input"></input>
+                                    </div> 
+                                </div>
+  
+
                                 <div className="control">
                                     <input placeholder="Email" name="email" type="email" onChange={this.handleChange} value={this.state.email} className="input my-1"></input>
                                 </div>   
