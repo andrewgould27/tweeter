@@ -10,7 +10,7 @@ export class Tweet extends Component
     
     render()
     {
-        let profileUrl = "/user/@" + this.props.username;
+        let profileUrl = "/" + this.props.username;
         return (
             <>
             <div className="tweet">

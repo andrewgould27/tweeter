@@ -1,16 +1,29 @@
+import firebase from "firebase";
+
 import { auth, db } from "../services/firebase";
 
-export function signup(username, email, password) {
+export async function signup(username, email, password) {
     // Check that the username is available
     // If available push username to database of used usernames
     // Sign up the user
     // Change user displayName to username
+
+    let currUser;
+
     return auth().createUserWithEmailAndPassword(email, password)
     .then(function(result) {
-        return result.user.updateProfile({
+        currUser = result;
+        result.user.updateProfile({
             displayName: username
         })
-    }).catch(function (error) {
+    })
+    .then(function(result) {
+        console.log(currUser);
+        db.ref('user-id/' + username).set({
+            uid: currUser.user.uid
+        })
+    })
+    .catch(function (error) {
         return error;
     });
 }

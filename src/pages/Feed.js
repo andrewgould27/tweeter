@@ -98,7 +98,7 @@ export default class Feed extends Component
                       </div>
                   </form>
                   <div>
-                      <p>Logged in as: <strong>{this.state.user.email}</strong></p>
+                      <p>Logged in as: <strong>{this.state.user.displayName}</strong></p>
                       <p><Link onClick={ () => signout() }>Sign out</Link></p>
                   </div>
                 </div>

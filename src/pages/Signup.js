@@ -35,8 +35,6 @@ export default class SignUp extends Component
         event.preventDefault();
         this.setState({ error: '' });
 
-        console.log(this.state.username);
-
         try {
             await signup(this.state.username, this.state.email, this.state.password)
         } catch (error) {
