@@ -60,7 +60,7 @@ export default class Feed extends Component
             content: this.state.content,
             timestamp: Date.now(),
             uid: this.state.user.uid,
-            username: this.state.user.displayName////////
+            username: this.state.user.displayName
           });
           this.setState({ content: '' });
         } catch (error) {

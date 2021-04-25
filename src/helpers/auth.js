@@ -20,7 +20,8 @@ export async function signup(username, email, password) {
     .then(function(result) {
         console.log(currUser);
         db.ref('user-id/' + username).set({
-            uid: currUser.user.uid
+            uid: currUser.user.uid,
+            tweets: []
         })
     })
     .catch(function (error) {
