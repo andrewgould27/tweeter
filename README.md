@@ -26,6 +26,8 @@ And you're off to the races!
 # Testing
 Provided is a test suite that ensures that integral functionality is functioning as expected.
 
+Currently, these tests predominantly cover the application at a high level, focusing primarily on the proper rendering of large components and the connection to the Firebase database and authentication servers.
+
 To run the test suite execute
 
 `yarn test`
