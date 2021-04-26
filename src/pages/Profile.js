@@ -1,10 +1,8 @@
 import firebase from "firebase";
-import { auth, db } from "../services/firebase";
 import React, { Component } from "react";
 import { Tweet } from "../components/Tweet.js";
 import '../bulma.min.css';
 import { Link } from "react-router-dom";
-import { signout } from "../helpers/auth";
 import '../styles.css';
 
 export default class Profile extends Component
@@ -50,14 +48,14 @@ export default class Profile extends Component
         return (
         <>
             <div className="container">
-                <h1 className="is-size-3">{this.state.username}</h1>
-                <Link to="/feed" className="button is-info">Back to Feed</Link>
-                { this.state.chats.map(chat => {
-                    let date = new Date(chat.timestamp);
-                    let time = (date.getHours() % 12) + ":" + (date.getMinutes()<10?'0':'') + ' ' + (date.getHours()>=12?'PM':'AM');
-                    date = date.toString();
-                    return <Tweet time={time} content={chat.content} username={chat.username} />
-                })}
+                        <h1 className="is-size-3">{this.state.username}</h1>
+                        <Link to="/feed" className="button is-info">Back to Feed</Link>
+                        { this.state.chats.map(chat => {
+                            let date = new Date(chat.timestamp);
+                            let time = (date.getHours() % 12) + ":" + (date.getMinutes()<10?'0':'') + ' ' + (date.getHours()>=12?'PM':'AM');
+                            date = date.toString();
+                            return <Tweet time={time} content={chat.content} username={chat.username} />
+                        })}
             </div>
         </>
         );
