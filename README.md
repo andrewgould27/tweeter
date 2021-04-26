@@ -17,9 +17,13 @@ Clone the repository to a local directory
 
 `git clone https://github.com/andrewgould27/tweeter.git`
 
+Next, you have to install the dependencies
+
+`npm install`
+
 From there, start the local development server with
 
-`yarn start`
+`npm start`
 
 And you're off to the races!
 
