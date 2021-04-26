@@ -97,10 +97,6 @@ export default class Feed extends Component
                           return <Tweet time={time} content={chat.content} username={chat.username} />//<p key={chat.timestamp}>{time}: <strong>{chat.content}</strong> Email:<strong>{chat.useremail}</strong></p>/////////
                       })}
                   </div>
-
-                  <div>
-                      <p>Logged in as: <strong>{this.state.user.displayName}</strong></p>
-                  </div>
                 </div>
 
                 <div className="link-box is-2">

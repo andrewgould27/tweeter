@@ -51,6 +51,7 @@ export default class Profile extends Component
         <>
             <div className="container">
                 <h1 className="is-size-3">{this.state.username}</h1>
+                <Link to="/feed" className="button is-info">Back to Feed</Link>
                 { this.state.chats.map(chat => {
                     let date = new Date(chat.timestamp);
                     let time = (date.getHours() % 12) + ":" + (date.getMinutes()<10?'0':'') + ' ' + (date.getHours()>=12?'PM':'AM');
