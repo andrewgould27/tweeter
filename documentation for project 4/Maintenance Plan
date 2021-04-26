@@ -1,0 +1,40 @@
+1.	Introduction
+2.	Contact information
+3.	Project Dependencies
+4.	Build process
+5.	System Organization
+6.	Cost
+7.	Reference
+
+
+Overview:
+This article is for the social networking software that Team 3 developed, a social networking clone of the media titan: Twitter. The article will provide information description for the software, support environment, steps to use, and system management. The article is also briefly estimating management cost and maintenance cost, the maintenance plan is aimed to be utilized until 4-25-2022 (one year later). 
+
+Introduction:
+Tweeter is designed to connecting people by sending text. User need to log in or sign up to create an account. Though the account, user can search each other and sending texts. The app allow multiple ways of communicating, including one to one chat and one to several chat simultaneously power in dual channel communication way. User also been allow to view another user’s profiles and tracking the time of each message. All information in this maintenance manual is concurrent up to 4-25-2022. Any future inflation costs or new system management methods should be taken into account appropriate.
+
+Contact information
+This application “Tweeter” and all previous version was developed by EECS 448 Team 3 in Spring 2021 at KU. All Team members can be contacted through email address which appeared on the left-hand site of our GitHub user page, the usernames are: andrewgould27 mrbraden 56 shpatel2001 Malardisca 903481310.
+Project Dependencies
+Currently our project needs to be run by several additional building platform and aids: Firebase, bulma, react and react-dom-router.
+
+Build process:
+Clone the repository to a local directory
+git clone https://github.com/andrewgould27/tweeter.git
+From there, start the local development server with
+npm start
+
+System Organization:
+This app consisted by several main framework in two folders: “public” and “src”. The “src” folder is included “components”, “helpers”, “pages”, “services” parts and several other additional .css and .js files which aim to connecting the project to their dependencies platform. The public folder is included html file, several icons and .json file that define how the webpage looks like. 
+
+Cost:
+Since our product will be release through brochures or posters in forums, and our products probably will be free. It doesn’t make sense to pay for a product that we all work so hard with and still pay for it. Furthermore, the forums or brochures that we post online don’t need to pay for maintain. Thus, the cost of maintenance will be free, and everybody can contribute their though, like adding some new feature or changing style, to develop our app by downloading our code and change in local, and then post on forum.
+Website Domain: None
+Database: Base on the support by free dependencies power by firebase and others.
+Software developers: Based on the median pay in 2020 at U.S. Bureau of Labor Statistics website, there’s $52.95 per hour and $110,140 per year for a software developers’ salary (U.S. BUREAU OF LABOR STATISTICS: Occupational Outlook Handbook). Since our project is small and can be fully develop in a few weeks (as we did). The estimate price is 52.95*8hours*5days*2weeks=$4236.
+
+
+References
+U.S. BUREAU OF LABOR STATISTICS: Occupational Outlook Handbook. 9 April 2021. 24 April 2021. <https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm>.
+
+
