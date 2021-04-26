@@ -10,6 +10,7 @@ Here is the full list of dependencies for this project.
 * react-dom-router
 * firebase
 * bulma
+* yarn
 
 # Build process
 Clone the repository to a local directory
@@ -18,9 +19,17 @@ Clone the repository to a local directory
 
 From there, start the local development server with
 
-`npm start`
+`yarn start`
 
 And you're off to the races!
+
+# Testing
+Provided is a test suite that ensures that integral functionality is functioning as expected.
+
+To run the test suite execute
+
+`yarn test`
+
 
 # Contributors
 
