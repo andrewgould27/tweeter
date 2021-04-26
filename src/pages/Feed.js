@@ -74,11 +74,22 @@ export default class Feed extends Component
           <>
             <div className="container">
               <div className="columns">
-                <div className="column is-half is-offset-one-quarter">
+                <div className="column is-4 is-offset-3">
                   <div className="container">
                     <h1 className="is-size-1 has-text-centered">Tweeter</h1>
                   </div>
                   <div className="tweets">
+                    <form onSubmit={this.handleSubmit}>
+                        { this.state.error ? <p>{this.state.writeError}</p> : null}
+                        <div className="field has-addons is-fullwidth">
+                          <div className="control is-expanded">
+                            <input class="input" type="text" onChange={this.handleChange} value={this.state.content}></input>
+                          </div>
+                          <div className="control">
+                            <button type="submiit" className="button">Send</button>
+                          </div>
+                        </div>
+                    </form>
                       {this.state.chats.map(chat => {
                           let date = new Date(chat.timestamp);
                           let time = (date.getHours() % 12) + ":" + (date.getMinutes()<10?'0':'') + date.getMinutes() + ' ' + (date.getHours()>=12?'PM':'AM');
@@ -86,21 +97,18 @@ export default class Feed extends Component
                           return <Tweet time={time} content={chat.content} username={chat.username} />//<p key={chat.timestamp}>{time}: <strong>{chat.content}</strong> Email:<strong>{chat.useremail}</strong></p>/////////
                       })}
                   </div>
-                  <form onSubmit={this.handleSubmit}>
-                      { this.state.error ? <p>{this.state.writeError}</p> : null}
-                      <div className="field has-addons is-fullwidth">
-                        <div className="control is-expanded">
-                          <input class="input" type="text" onChange={this.handleChange} value={this.state.content}></input>
-                        </div>
-                        <div className="control">
-                          <button type="submiit" className="button">Send</button>
-                        </div>
-                      </div>
-                  </form>
+
                   <div>
                       <p>Logged in as: <strong>{this.state.user.displayName}</strong></p>
-                      <p><Link onClick={ () => signout() }>Sign out</Link></p>
                   </div>
+                </div>
+
+                <div className="link-box is-2">
+                  <ul>
+                    <li><Link to="/feed" className="button is-info link-btn">Feed</Link></li>
+                    <li><Link to={`${this.state.user.displayName}`} className="button is-info link-btn">Profile</Link></li>
+                    <li><p><Link onClick={ () => signout() } className="button is-danger link-btn">Sign out</Link></p></li>
+                  </ul>
                 </div>
               </div>     
             </div>

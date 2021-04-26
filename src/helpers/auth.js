@@ -1,5 +1,3 @@
-import firebase from "firebase";
-
 import { auth, db } from "../services/firebase";
 
 export async function signup(username, email, password) {

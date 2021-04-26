@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { Link } from "react-router-dom";
 import '../bulma.min.css';
 
 export default class Home extends Component
