@@ -40,3 +40,5 @@ To run the test suite execute
 * Braden Lockwood
 * Yaoqian Mai
 * Yuelin Xie
+
+[Presentation](https://youtu.be/0JtDOVRh6Ag)
